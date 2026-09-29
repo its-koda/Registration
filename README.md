@@ -1,42 +1,47 @@
-# 🚀 Desafio 1: Verificador de Maioridade (`5a_desafio1`) 🆔
+# 🚀 Age Verifier & Access Log System 🆔
 
-Projeto desenvolvido em PHP como parte do **Desafio 1**, praticando manipulação de formulários, validação de regras de negócio, persistência de dados em arquivos de texto e exibição de dados com arrays/tabelas.
-
----
-
-## 📌 Descrição do Desafio
-
-O objetivo deste projeto é construir uma página única em PHP que execute as seguintes tarefas:
-
-1. **🖥️ Formulário HTML:** Exibe os campos para preenchimento do **Nome** e **Ano de Nascimento**.
-2. **⚙️ Cálculo de Idade:** Ao submeter o formulário (`POST`), o script PHP calcula a idade do usuário subtraindo o ano de nascimento do ano atual.
-3. **✅ Validação de Maioridade (18+):** 
-   - Exibe a mensagem: `"Acesso permitido, [Nome]!"`.
-   - Salva o **Nome** e a **Idade** calculada no arquivo de texto `log_acessos.txt`.
-4. **🚫 Menor de Idade (<18):** 
-   - Exibe a mensagem: `"Acesso negado, [Nome]!"`.
+[🇺🇸 English Version](#-english-version) | [🇧🇷 Versão em Português](#-versão-em-português)
 
 ---
 
-## 📚 Conceitos Aplicados (Baseados nas Aulas)
+## 🇺🇸 English Version
 
-O projeto consolida os ensinamentos práticos passados pelo instrutor em sala de aula:
+### 📌 Description
+A PHP project designed to handle form submissions, validate business logic, persist data in text files, and process requests via the `POST` method.
 
-* **Manipulação de Arquivos (`5_cadastro.php`):**
-  - Aplicação da técnica ensinada em aula para **salvar informações em bloco de notas (`.txt`)** usando funções nativas do PHP (`fopen` no modo `'a'`, `fwrite` e `fclose`).
-* **Arrays e Exibição em Tabelas (`7_arrays.php`):**
-  - Utilização da estrutura de **arrays** e laços de repetição (`foreach`) conforme ensinado pelo instrutor para estruturar, organizar e renderizar dados em formato de **tabela HTML**.
-* **Método `POST`:** Processamento de dados enviados via formulário HTML de forma segura na mesma página.
+### 🎯 Key Features
+- **🖥️ HTML Form:** Collects **Name** and **Birth Year** from the user.  
+- **⚙️ Age Calculation:** Dynamically calculates age based on the current year.  
+- **✅ Majority Validation (18+):**  
+  - Shows a success alert in the browser.  
+  - Saves **Name** and **Age** into `log_acessos.txt`.  
+- **🚫 Minor (<18):**  
+  - Shows an access denied alert.  
+
+### 📚 Concepts Applied
+- **File Handling (I/O):** Data persistence using `fopen`, `fwrite`, and `fclose`.  
+- **Form Processing:** Handling `POST` requests with `$_SERVER['REQUEST_METHOD']`.  
+- **Conditional Logic & Type Casting:** Using `(int)` for calculations and `if/else` for validation.  
 
 ---
 
-## 📂 Estrutura de Arquivos
+## 🇧🇷 Versão em Português
 
-```text
-cadastro/
-├── 5_cadastro.php      # Aula sobre salvamento de dados em bloco de notas (.txt)
-├── 5a_desafio1.md      # Descrição do enunciado do desafio
-├── 5a_desafio1.php     # Resolução principal do Desafio 1 (Formulário + Validação)
-├── 7_arrays.php        # Aula sobre arrays e geração de tabelas
-├── log_acessos.txt     # Arquivo gerado para armazenar os logs dos maiores de idade
-└── README.md           # Documentação do projeto
+### 📌 Descrição
+Projeto em PHP desenvolvido para manipulação de formulários, validação de regras de negócio, persistência de dados em arquivos de texto e processamento de requisições via método `POST`.
+
+### 🎯 Funcionalidades
+- **🖥️ Formulário HTML:** Coleta **Nome** e **Ano de Nascimento** do usuário.  
+- **⚙️ Cálculo de Idade:** Calcula dinamicamente a idade com base no ano atual.  
+- **✅ Validação de Maioridade (18+):**  
+  - Exibe alerta de sucesso no navegador.  
+  - Salva **Nome** e **Idade** no arquivo `log_acessos.txt`.  
+- **🚫 Menor (<18):**  
+  - Exibe alerta de acesso negado.  
+
+### 📚 Conceitos Aplicados
+- **Manipulação de Arquivos (I/O):** Persistência de dados com `fopen`, `fwrite` e `fclose`.  
+- **Processamento de Formulários:** Tratamento de requisições `POST` com `$_SERVER['REQUEST_METHOD']`.  
+- **Lógica Condicional & Casting de Tipos:** Conversão `(int)` para cálculos e uso de `if/else` para validação.  
+
+---
