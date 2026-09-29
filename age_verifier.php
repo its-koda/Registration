@@ -8,45 +8,50 @@
 </head>
 
 <body>
+    <!-- Formulário de captura de dados via método POST -->
     <form method="post" action="">
         <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome" required><br>
 
-        <label for="ano">Ano:</label> <!-- Adicionado name="ano" -->
+        <label for="ano">Ano:</label>
         <input type="text" name="ano" id="ano" required><br>
 
         <button type="submit">Verificar</button>
     </form>
 
     <?php
-
+    // Orientação padrão exibida na página
     echo "Preencha o formulário com seu nome e ano de nascimento";
     
+    // Verifica se a requisição atual veio do envio do formulário (método POST)
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Recebe os valores do formulário (e pega o ano atual)
+        
+        // Recebe os dados do formulário e obtém o ano dinâmico do servidor
         $nome = $_POST['nome'];
         $ano = (int)$_POST['ano'];
         $anoAtual = (int)date('Y');
 
-        // Calcula a idade baseado no ano enviado e o ano atual
+        // Processa o cálculo de idade
         $idade = $anoAtual - $ano;
 
-        // Registro das informações
+        // Estrutura condicional para verificação de maioridade
         if ($idade >= 18) {
-            // Abre/Cria o arquivo log_acessos.txt
+            
+            // Abre (ou cria) o arquivo de log no modo 'a' (append/anexo)
             $arquivo = fopen('log_acessos.txt', 'a');
 
-            // Cria a linha
+            // Estrutura a linha com os dados formatados
             $linha = $nome . ";" . $idade . "\n";
 
-            // Escreve e fecha
+            // Registra os dados no arquivo .txt e encerra a conexão com o arquivo
             fwrite($arquivo, $linha);
             fclose($arquivo);
 
+            // Emite alerta JavaScript de sucesso no cadastro
             echo "<script>alert('Usuário cadastrado com sucesso ✅');</script>";
 
         } else {
-            // Nega o acesso a menores de idade
+            // Emite alerta JavaScript para restrição de menor de idade
             echo "<script>alert('Acesso negado 🚫, {$nome}!');</script>";
         }
     }
